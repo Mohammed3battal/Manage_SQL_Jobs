@@ -1,0 +1,16 @@
+SELECT 
+    j.name AS JobName,
+    ja.start_execution_date,
+    ja.stop_execution_date,
+    CASE 
+        WHEN ja.stop_execution_date IS NULL THEN 'Possibly Running'
+        ELSE 'Completed'
+    END AS JobStatus
+FROM 
+    msdb.dbo.sysjobactivity ja
+JOIN 
+    msdb.dbo.sysjobs j ON ja.job_id = j.job_id
+WHERE 
+    j.name = 'Job name'
+ORDER BY 
+    ja.start_execution_date DESC;
