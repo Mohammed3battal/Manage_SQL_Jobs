@@ -1,0 +1,5 @@
+USE msdb;
+GO
+
+EXEC msdb.dbo.sp_stop_job 
+    @job_name = 'Job name';
