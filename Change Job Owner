@@ -1,0 +1,6 @@
+USE msdb;
+GO
+
+EXEC sp_update_job 
+    @job_name = N'Your Job Name',
+    @owner_login_name = N'NewLoginName';
