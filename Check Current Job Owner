@@ -1,0 +1,4 @@
+SELECT 
+    name AS JobName, 
+    SUSER_SNAME(owner_sid) AS JobOwner
+FROM msdb.dbo.sysjobs;
